@@ -1,1 +1,3 @@
 # labboard
+
+Simple homelab dashboard
