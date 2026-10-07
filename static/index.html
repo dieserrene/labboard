@@ -9,13 +9,7 @@
 <body>
 <h1>LabBoard</h1>
 <pre id="serverliste">Lade Daten …</pre>
-</body>
 
-<script>
-  fetch("/api/servers")
-    .then(antwort => antwort.json())
-    .then(daten => {
-      document.getElementById("serverliste").textContent =
-        JSON.stringify(daten, null, 2);
-    });
-</script>
+<script src="app.js"></script>
+</body>
+</html>
