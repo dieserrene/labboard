@@ -3,9 +3,11 @@ import os
 import pymysql
 from dotenv import load_dotenv
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 
 load_dotenv()
 app = FastAPI()
+
 
 def get_connection():
     return pymysql.connect(
@@ -16,6 +18,7 @@ def get_connection():
         database=os.environ["DB_NAME"],
         cursorclass=pymysql.cursors.DictCursor,
     )
+
 
 @app.get("/api/servers")
 def list_servers():
@@ -30,4 +33,5 @@ def list_servers():
     finally:
         conn.close()
 
-print(list_servers())
+
+app.mount("/", StaticFiles(directory="static", html=True), name="static")
