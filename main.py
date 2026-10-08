@@ -1,10 +1,8 @@
-from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 
 from db import get_connection
 
-load_dotenv()
 app = FastAPI()
 
 @app.get("/api/servers")
